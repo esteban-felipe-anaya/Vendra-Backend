@@ -1,0 +1,50 @@
+# --- secrets / env (NEVER commit) ---
+.env
+.env.*
+!.env.example
+*.local
+
+# --- Java / Maven (Spring Boot server) ---
+target/
+build/
+!**/src/main/**/target/
+!**/src/test/**/target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# --- Maven wrapper (keep wrapper scripts, ignore the downloaded jar) ---
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/*.jar
+
+# --- Gradle (in case a module uses it) ---
+.gradle/
+
+# --- Spring Boot ---
+*.log
+logs/
+
+# --- Supabase ---
+supabase/.branches
+supabase/.temp
+**/.supabase/
+
+# --- IDE / editor ---
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/*
+!.vscode/extensions.json
+.settings/
+.project
+.classpath
+*.swp
+
+# --- OS ---
+.DS_Store
+Thumbs.db
