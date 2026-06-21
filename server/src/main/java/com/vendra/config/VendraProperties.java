@@ -25,6 +25,7 @@ public class VendraProperties {
   @Getter @Setter
   public static class Supabase {
     private String url;
+    private String anonKey;
     private String serviceRoleKey;
     private String storageUrl;
     private Buckets buckets = new Buckets();

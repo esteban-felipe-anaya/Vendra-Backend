@@ -46,6 +46,9 @@ public class SecurityConfig {
                     // --- open: public catalog browse (GET only) ---
                     .requestMatchers(HttpMethod.GET, "/api/v1/catalog/**", "/api/v1/shops/**", "/api/v1/products/**", "/api/v1/categories/**")
                     .permitAll()
+                    // --- auth endpoints issue/refresh tokens, so no JWT required ---
+                    .requestMatchers("/api/v1/auth/**")
+                    .permitAll()
                     // --- Stripe webhook authenticates by signature, not JWT ---
                     .requestMatchers("/api/v1/webhooks/stripe")
                     .permitAll()

@@ -45,6 +45,7 @@ vendra:
     hs256-secret: ${SUPABASE_JWT_SECRET:}
   supabase:
     url: ${SUPABASE_URL}
+    anon-key: ${SUPABASE_ANON_KEY:}
     service-role-key: ${SUPABASE_SERVICE_ROLE_KEY}
     storage-url: ${SUPABASE_STORAGE_URL}
     buckets:

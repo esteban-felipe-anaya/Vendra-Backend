@@ -2,10 +2,11 @@
 
 Spring Boot API (`server/`) + Supabase database (`supabase/`, the schema source of truth).
 
-Clients sign in with Supabase Auth → call this API with `Authorization: Bearer <jwt>`. Spring
-verifies the JWT via Supabase JWKS, authorizes by role, and talks to Postgres over JDBC with the
-service key. Schema lives only in `supabase/migrations` — Hibernate runs `ddl-auto=validate`
-(no Flyway).
+Clients sign in **through this API** (`POST /api/v1/auth/login` · `/signup` · `/refresh` · `/logout`),
+which proxies Supabase Auth server-side — clients never call Supabase Auth directly. They then call
+the API with `Authorization: Bearer <jwt>`; Spring verifies the JWT via Supabase JWKS, authorizes by
+role, and talks to Postgres over JDBC with the service key. Schema lives only in
+`supabase/migrations` — Hibernate runs `ddl-auto=validate` (no Flyway).
 
 ```
 backend/
