@@ -23,7 +23,8 @@
 -- ---------------------------------------------------------------------------
 create or replace function public.seed_user(
   p_id uuid, p_email text, p_password text, p_role text, p_name text
-) returns uuid language plpgsql security definer set search_path = auth, public as $$
+) returns uuid language plpgsql security definer
+  set search_path = auth, public, extensions as $$  -- extensions: pgcrypto (crypt/gen_salt)
 begin
   insert into auth.users (
     instance_id, id, aud, role, email, encrypted_password, email_confirmed_at,

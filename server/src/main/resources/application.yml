@@ -5,6 +5,12 @@ server:
 spring:
   application:
     name: vendra-api
+  # Load local dev env from backend/.env (optional; absent in prod where real env vars are set).
+  # Checked relative to the run dir: server/ (CLI via mvnw) and backend/ both covered.
+  config:
+    import:
+      - optional:file:.env[.properties]
+      - optional:file:../.env[.properties]
   datasource:
     url: ${SPRING_DATASOURCE_URL}
     username: ${SPRING_DATASOURCE_USERNAME}

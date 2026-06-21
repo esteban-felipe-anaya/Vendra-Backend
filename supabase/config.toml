@@ -17,10 +17,13 @@ major_version = 15
 enabled = true
 port = 54323
 
+# Buckets (products / shops / avatars) are created by migrations/0010_storage.sql.
+# To declare them here instead, use table sections, e.g.:
+#   [storage.buckets.products]
+#   public = true
 [storage]
 enabled = true
 file_size_limit = "10MiB"
-buckets = ["products", "shops", "avatars"]
 
 [auth]
 enabled = true
